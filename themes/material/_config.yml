@@ -33,7 +33,7 @@ scheme: Paradox
 
 # UI & UX: slogan, color, effect
 uiux:
-    slogan: "Hi, nice to meet you"
+    slogan: "Keep it simple - 大道至简"
     theme_color: "#0097A7"
     theme_sub_color: "#00838F"
     hyperlink_color: "#00838F"
@@ -167,7 +167,7 @@ toc:
 
 # SNS Menu
 sns:
-    email: feichang0609@gmail.com
+    email: "feichang0609@gmail.com"
     facebook:
     github: "https://github.com/kisChang"
     twitter: "https://twitter.com/Chang5869"
