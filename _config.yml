@@ -17,7 +17,7 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
-url: http://kischang.tk
+url: https://kischang.tk
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
