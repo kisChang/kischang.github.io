@@ -19,7 +19,7 @@ baidusitemap:
   path: baidusitemap.xml
 url: https://kischang.tk
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:title.html
 permalink_defaults:
 
 # Directory
