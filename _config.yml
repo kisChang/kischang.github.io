@@ -17,7 +17,7 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
-url: https://kischang.tk
+url: https://kischang.github.io
 root: /
 permalink: :year/:month/:day/:title.html
 permalink_defaults:

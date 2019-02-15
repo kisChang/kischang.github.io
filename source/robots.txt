@@ -11,5 +11,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://kischang.tk/sitemap.xml
-Sitemap: https://kischang.tk/baidusitemap.xml
+Sitemap: https://kischang.github.io/sitemap.xml
+Sitemap: https://kischang.github.io/baidusitemap.xml
