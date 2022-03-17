@@ -490,8 +490,11 @@
         <p>SSH创建隧道，Chrome通过隧道链接到目标主机后，可以直接访问目标主机所在网络的服务。</p>
 <h3 id="1-创建SSH隧道"><a href="#1-创建SSH隧道" class="headerlink" title="1. 创建SSH隧道"></a>1. 创建SSH隧道</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -ND 8133 user@ip</span><br></pre></td></tr></table></figure>
 <pre><code>其中8133为本地的代理端口
-</code></pre><h3 id="2-Chrome接入目标服务器"><a href="#2-Chrome接入目标服务器" class="headerlink" title="2. Chrome接入目标服务器"></a>2. Chrome接入目标服务器</h3><p>可以直接配置Chrome的代理服务器为以下配置：<br>协议：Socket5<br>服务器：127.0.0.1<br>端口：8133<br>此处推荐使用<a href="https://github.com/FelisCatus/SwitchyOmega/" target="_blank" rel="noopener">SwitchyOmega</a>管理代理服务器</p>
-<p>在Linux下推荐使用命令行启动，参数中包含代理服务配置和用户目录，用户目录是临时目录，这样可以在每次使用时，有一个干净的环境<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google-chrome --proxy-server=<span class="string">"socks5://localhost:8133"</span> --host-resolver-rules=<span class="string">" MAP * 0.0.0.0, EXCLUDE localhost "</span> --user-data-dir=/tmp/go-chrome</span><br></pre></td></tr></table></figure></p>
+</code></pre>
+<h3 id="2-Chrome接入目标服务器"><a href="#2-Chrome接入目标服务器" class="headerlink" title="2. Chrome接入目标服务器"></a>2. Chrome接入目标服务器</h3><p>可以直接配置Chrome的代理服务器为以下配置：<br>协议：Socket5<br>服务器：127.0.0.1<br>端口：8133<br>此处推荐使用<a target="_blank" rel="noopener" href="https://github.com/FelisCatus/SwitchyOmega/">SwitchyOmega</a>管理代理服务器</p>
+<p>在Linux下推荐使用命令行启动，参数中包含代理服务配置和用户目录，用户目录是临时目录，这样可以在每次使用时，有一个干净的环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google-chrome --proxy-server=<span class="string">&quot;socks5://localhost:8133&quot;</span> --host-resolver-rules=<span class="string">&quot; MAP * 0.0.0.0, EXCLUDE localhost &quot;</span> --user-data-dir=/tmp/go-chrome</span><br></pre></td></tr></table></figure>
+
 
         
     

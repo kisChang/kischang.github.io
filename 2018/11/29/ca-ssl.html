@@ -488,14 +488,25 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>文档并不完善，找时间再填补，先备份历史日志。</p>
-<h4 id="1-自建CA"><a href="#1-自建CA" class="headerlink" title="1. 自建CA"></a>1. 自建CA</h4><p>ca 私钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 2048</span><br></pre></td></tr></table></figure></p>
-<p>ca 创建<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -x509 -days 36500 -key ca.key -out ca.crt -subj \</span><br><span class="line"><span class="string">"/C=CN/ST=Beijing/L=Beijing/O=Temp/OU=Temp"</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="2-ssl证书"><a href="#2-ssl证书" class="headerlink" title="2. ssl证书"></a>2. ssl证书</h4><p>ssl私钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 2048</span><br></pre></td></tr></table></figure></p>
-<p>创建证书<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key server.key -out server.csr -subj \</span><br><span class="line"><span class="string">"/C=CN/ST=Beijing/L=Beijing/O=Temborn/OU=tem.com/CN=owncloud.tem.com"</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="3-签发ssl证书"><a href="#3-签发ssl证书" class="headerlink" title="3. 签发ssl证书"></a>3. 签发ssl证书</h4><p>准备工作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir demoCA </span><br><span class="line"><span class="built_in">cd</span> demoCA  </span><br><span class="line">mkdir newcerts </span><br><span class="line">touch index.txt  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">'01'</span> &gt; serial </span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">openssl ca -<span class="keyword">in</span> server.csr -out server.crt -cert ca.crt -keyfile ca.key</span><br></pre></td></tr></table></figure>
-<p>owncloud 的证书<br>目录：/mnt/data/certs<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-自建CA"><a href="#1-自建CA" class="headerlink" title="1. 自建CA"></a>1. 自建CA</h4><p>ca 私钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out ca.key 2048</span><br></pre></td></tr></table></figure>
 
+<p>ca 创建</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -x509 -days 36500 -key ca.key -out ca.crt -subj \</span><br><span class="line"><span class="string">&quot;/C=CN/ST=Beijing/L=Beijing/O=Temp/OU=Temp&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-ssl证书"><a href="#2-ssl证书" class="headerlink" title="2. ssl证书"></a>2. ssl证书</h4><p>ssl私钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out server.key 2048</span><br></pre></td></tr></table></figure>
+
+<p>创建证书</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl req -new -key server.key -out server.csr -subj \</span><br><span class="line"><span class="string">&quot;/C=CN/ST=Beijing/L=Beijing/O=Temborn/OU=tem.com/CN=owncloud.tem.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-签发ssl证书"><a href="#3-签发ssl证书" class="headerlink" title="3. 签发ssl证书"></a>3. 签发ssl证书</h4><p>准备工作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> demoCA </span><br><span class="line"><span class="built_in">cd</span> demoCA  </span><br><span class="line"><span class="built_in">mkdir</span> newcerts </span><br><span class="line"><span class="built_in">touch</span> index.txt  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;01&#x27;</span> &gt; serial </span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"></span><br><span class="line">openssl ca -<span class="keyword">in</span> server.csr -out server.crt -cert ca.crt -keyfile ca.key</span><br></pre></td></tr></table></figure>
+
+<p>owncloud 的证书<br>目录：&#x2F;mnt&#x2F;data&#x2F;certs</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/share/ca-certificates/</span><br><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure>
         
     
 
